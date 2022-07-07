@@ -1,0 +1,1 @@
+import{S as o,i as r,s as i,e as l,a as u,n as a,d as c}from"./index.65237bce.js";function f(n){let e;return{c(){e=l("p"),e.textContent=`${p}`},m(t,s){u(t,e,s)},p:a,i:a,o:a,d(t){t&&c(e)}}}let p="Failed to find route";class m extends o{constructor(e){super(),r(this,e,null,f,i,{})}}export{m as default};

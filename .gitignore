@@ -1,2 +1,8 @@
 .clj-kondo/
 .cpcache/
+dev/
+.nrepl-port
+node_modules/
+.idea/
+.lsp/
+.calva/
