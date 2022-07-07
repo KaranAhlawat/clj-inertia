@@ -4,4 +4,5 @@
 </script>
 
 <h1>{name}</h1>
-<Link href="/counter" />
+<Link href="/counter">Counter</Link>
+<Link href="/bruh">Bruh</Link>
