@@ -1,0 +1,11 @@
+{
+  "name": "svlte-inertia",
+  "version": "0.1.0",
+  "description": "The best Counter app you'll ever see!",
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build"
+  },
+  "keywords": ["svelte", "inertia", "clojure", "deployed"],
+  "author": "Karan Ahlawat"
+}
