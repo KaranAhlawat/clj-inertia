@@ -30,7 +30,8 @@
     (ring/redirect-trailing-slash-handler)
     (ring/create-resource-handler
      {:path "/"
-      :root "."}))))
+      :root "."})
+    (ring/create-default-handler))))
 
 (comment
   (app {:request-method :get :uri "/"})
