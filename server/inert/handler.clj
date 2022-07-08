@@ -3,12 +3,12 @@
 
 (defn index-handler
   [_]
-  (inertia/render :home))
+  (inertia/render :Home))
 
 (defn counter-handler
   [_]
-  (inertia/render :counter))
+  (inertia/render :Counter))
 
 (defn default-handler
   [_]
-  (inertia/render :default))
+  (inertia/render :Default))

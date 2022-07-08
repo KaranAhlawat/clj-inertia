@@ -1,5 +1,1 @@
-<script>
-  let error = "Failed to find route";
-</script>
-
-<p>{error}</p>
+<h1>Failed to find that route then innit</h1>

@@ -2,8 +2,7 @@ import { createInertiaApp } from "@inertiajs/inertia-svelte";
 
 function resolvePageComponent(name, pages) {
   for (const path in pages) {
-    let svelteName = name[0].toUpperCase() + name.slice(1)
-    if (path.endsWith(`${svelteName.replace('.', '/')}.svelte`)) {
+    if (path.endsWith(`${name.replace('.', '/')}.svelte`)) {
       return typeof pages[path] === 'function'
         ? pages[path]()
         : pages[path]

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "The best Counter app you'll ever see!",
   "scripts": {
-    "dev": "vite dev",
+    "dev": "vite",
     "build": "vite build",
     "watch": "vite build --watch"
   },

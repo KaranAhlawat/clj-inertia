@@ -7,31 +7,27 @@
             [ring.middleware.keyword-params :refer [wrap-keyword-params]]
             [inertia.middleware :as inertia]
             [inert.handler :as h]
-            [selmer.parser :as html]))
+            [inert.template :as t]))
 
 (def asset-version "1")
-
-(defn template
-  [data-page]
-  (html/render-file "index.html" {:page data-page}))
 
 (def app
   (ring/ring-handler
    (ring/router
     [["/" {:get {:handler #'h/index-handler}}]
      ["/counter" {:get {:handler #'h/counter-handler}}]]
-    {:data {:reitit.middleware/transform dev/print-request-diffs
-            :exception pretty/exception
-            :middleware [parameters-middleware
-                         wrap-keyword-params
-                         exception-middleware
-                         [inertia/wrap-inertia template asset-version]]}})
+    {:exception pretty/exception}) 
    (ring/routes
     (ring/redirect-trailing-slash-handler)
     (ring/create-resource-handler
      {:path "/"
-      :root "."})
-    (ring/create-default-handler))))
+      :root "./dist/"})
+    #'h/default-handler) 
+   {:reitit.middleware/transform dev/print-request-diffs
+    :middleware [parameters-middleware
+                 wrap-keyword-params
+                 exception-middleware
+                 [inertia/wrap-inertia #'t/template asset-version]]}))
 
 (comment
   (app {:request-method :get :uri "/"})
