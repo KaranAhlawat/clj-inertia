@@ -3,19 +3,27 @@
             [clojure.edn :as edn]
             [clojure.data.json :as json]))
 
+;; We define a custom Selmer tag because the script tag didn't do what is
+;; required by JS modules.
 (html/add-tag! :module
-               (fn [[url] context-map]
+               (fn [args context-map]
                  (format "<script defer type=\"module\" src=\"%s\"></script>"
-                         (-> url
+                         ;; Extract the URL from the context-map passed to the
+                         ;; selmer render-file function
+                         (-> args
+                             first
                              keyword
                              context-map))))
 
 (defn template
+  "Render the template file with the correct context-map based on the environment."
   [data-page]
   (let [env (-> "resources/env.edn"
                 slurp
                 edn/read-string
                 :env)
+        ;; If env is dev, we just point to the running vite server.
+        ;; Else, we parse the manifest.json file for the correct file name.
         main-file (if (= env "development")
                     "http://localhost:3000/main.js"
                     (-> "resources/dist/manifest.json"
@@ -25,7 +33,7 @@
                         :file))]
     (html/render-file "index.html"
                       {:page data-page
-                       :main main-file})))
+                       :url main-file})))
 
 (comment
   (replace ["$other" "broski"] "bruh/$broski")

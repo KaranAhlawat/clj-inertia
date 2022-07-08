@@ -1,3 +1,5 @@
+<!-- The only template HTML file we have. Inertia middleware uses this. -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,10 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inert - Svelte + Inertia</title>
-    {% module main %}
+    <!-- Custom selmer tag. Replaces with the correct main script depending on the environemnt of  -->
+    {% module url %}
 </head>
 
 <body>
+    <!-- Substitute in the data-page data that Inertia sends -->
     <div id="app" data-page="{{page}}"></div>
 </body>
 
