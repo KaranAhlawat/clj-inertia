@@ -10,6 +10,9 @@
     <title>Inert - Svelte + Inertia</title>
     <!-- Custom selmer tag. Replaces with the correct main script depending on the environemnt of  -->
     {% module url %}
+    {%if env = "production" %}
+     {% style css %}
+    {% endif %}
 </head>
 
 <body>

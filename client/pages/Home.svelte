@@ -1,7 +1,5 @@
 <script>
-  import link from "@inertiajs/inertia-svelte/src/link";
-
-  let links = [
+  let sites = [
     {
       display: "Clojure",
       url: "https://clojure.org",
@@ -25,8 +23,8 @@
   <p>This website is a PoC for using</p>
 
   <div class="links">
-    {#each links as link}
-      <a href={link.url}>{link.display}</a>
+    {#each sites as site}
+      <a href={site.url}>{site.display}</a>
     {/each}
   </div>
   <p>for making web applications (and having fun doing so)</p>

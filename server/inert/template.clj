@@ -30,10 +30,19 @@
                         slurp
                         (json/read-str :key-fn keyword)
                         :main.js
-                        :file))]
+                        :file))
+        css-file (when (= env "production")
+                   (-> "resources/dist/manifest.json"
+                       slurp
+                       (json/read-str :key-fn keyword)
+                       :main.js
+                       :css
+                       first))]
     (html/render-file "index.html"
                       {:page data-page
-                       :url main-file})))
+                       :env env
+                       :url main-file
+                       :css css-file})))
 
 (comment
   (replace ["$other" "broski"] "bruh/$broski")
