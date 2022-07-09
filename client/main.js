@@ -1,4 +1,6 @@
+import "./style.css";
 import { createInertiaApp } from "@inertiajs/inertia-svelte";
+import Layout from "./shared/Layout.svelte";
 
 // Function to resolve the correct Svelte component file based on the
 // component name passed by Inertia.
@@ -16,8 +18,16 @@ function resolvePageComponent(name, pages) {
 // Create the inertia app. The "App" svelte component is internal to
 // inertia-svelte package.
 createInertiaApp({
-  resolve: (name) =>
-    resolvePageComponent(name, import.meta.glob("./pages/**/*.svelte")),
+  resolve: (name) => {
+    let page = resolvePageComponent(
+      name,
+      import.meta.glob("./pages/**/*.svelte")
+    );
+
+    page.layout = page.layout || Layout;
+
+    return page;
+  },
   setup({ el, App, props }) {
     new App({ target: el, props });
   },

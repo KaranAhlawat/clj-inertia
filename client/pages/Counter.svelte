@@ -1,5 +1,6 @@
 <script>
-    let count = 0;
+  export let layout;
+  let count = 0;
 </script>
 
 <h1>Counter : {count}</h1>

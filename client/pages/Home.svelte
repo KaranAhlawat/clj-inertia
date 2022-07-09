@@ -1,8 +1,11 @@
 <script>
-  import { Link } from "@inertiajs/inertia-svelte";
   let name = "Karan";
 </script>
 
-<h1>Hello. You name is {name}</h1>
-<Link href="/counter">Counter</Link>
-<Link href="/bruh">Bruh</Link>
+<h1>Hello {name}</h1>
+
+<style scoped>
+  h1 {
+    color: var(--green-4);
+  }
+</style>

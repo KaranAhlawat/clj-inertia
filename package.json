@@ -16,7 +16,9 @@
   "author": "Karan Ahlawat",
   "dependencies": {
     "@inertiajs/inertia": "^0.11.0",
-    "@inertiajs/inertia-svelte": "^0.8.0"
+    "@inertiajs/inertia-svelte": "^0.8.0",
+    "open-props": "^1.4.1",
+    "postcss-jit-props": "^1.0.7"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "1.0.0-next.48",

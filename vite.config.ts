@@ -1,4 +1,6 @@
 import { defineConfig } from "vite";
+import postcssJitProps from "postcss-jit-props";
+import OpenProps from "open-props";
 // Using the vite Svelte plugin, otherwise Vite will throw a parser error.
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 
@@ -18,13 +20,22 @@ export default defineConfig(({ mode }) => {
       emptyOutDir: true,
       rollupOptions: {
         // We're telling Rollup that our main entry point is main.js
-        input: "./client/main.js",    
-      }
+        input: "./client/main.js",
+      },
     },
     plugins: [svelte()],
     // Does what it says, I'm guessing. Don't ask me :D
     optimizeDeps: {
-      include: ["@inertiajs/inertia", "@inertiajs/inertia-svelte"],
+      include: [
+        "@inertiajs/inertia",
+        "@inertiajs/inertia-svelte",
+        "open-props",
+      ],
+    },
+    css: {
+      postcss: {
+        plugins: [postcssJitProps(OpenProps)],
+      },
     },
   };
 });
