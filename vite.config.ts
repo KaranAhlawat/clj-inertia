@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+import { resolve } from "path";
 import postcssJitProps from "postcss-jit-props";
 import OpenProps from "open-props";
 // Using the vite Svelte plugin, otherwise Vite will throw a parser error.
@@ -8,6 +9,11 @@ export default defineConfig(({ mode }) => {
   return {
     // Set root to the client folder, to keep stuff clean
     root: "./client",
+    resolve: {
+      alias: {
+        "@": resolve(__dirname, "client"),
+      }
+    },
     server: {
       // Only allow CORS if we're in development
       cors: mode === "development",
@@ -23,13 +29,20 @@ export default defineConfig(({ mode }) => {
         input: "./client/main.js",
       },
     },
-    plugins: [svelte()],
+    plugins: [svelte(
+      {
+        experimental: {
+          prebundleSvelteLibraries: true,
+        }
+      }
+    )],
     // Does what it says, I'm guessing. Don't ask me :D
     optimizeDeps: {
       include: [
         "@inertiajs/inertia",
         "@inertiajs/inertia-svelte",
         "open-props",
+        "@inertiajs/progress",
       ],
     },
     css: {

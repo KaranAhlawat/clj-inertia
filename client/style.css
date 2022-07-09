@@ -1,1 +1,8 @@
 @import "open-props/normalize";
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
+
+.nav-link {
+  font-size: var(--font-size-5);
+  text-decoration: none;
+  color: var(--green-4);
+}

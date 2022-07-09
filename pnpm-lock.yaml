@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@inertiajs/inertia': ^0.11.0
   '@inertiajs/inertia-svelte': ^0.8.0
+  '@inertiajs/progress': ^0.2.7
   '@sveltejs/vite-plugin-svelte': 1.0.0-next.48
   open-props: ^1.4.1
   postcss-jit-props: ^1.0.7
@@ -12,6 +13,7 @@ specifiers:
 dependencies:
   '@inertiajs/inertia': 0.11.0
   '@inertiajs/inertia-svelte': 0.8.0_fbnkmlyyx5hz7ybarl5bnfzfbq
+  '@inertiajs/progress': 0.2.7_@inertiajs+inertia@0.11.0
   open-props: 1.4.1
   postcss-jit-props: 1.0.7_postcss@8.4.14
 
@@ -41,6 +43,15 @@ packages:
       qs: 6.11.0
     transitivePeerDependencies:
       - debug
+    dev: false
+
+  /@inertiajs/progress/0.2.7_@inertiajs+inertia@0.11.0:
+    resolution: {integrity: sha512-zxadfLlBPIUvTE9g5k71V/Ayzo8P9kEp4hV4UKywCC2kURufxV7bycbZqU1GeMCFGDT+VRrjXNl676Pwwa1HoQ==}
+    peerDependencies:
+      '@inertiajs/inertia': ^0.6.0 || ^0.7.0 || ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0
+    dependencies:
+      '@inertiajs/inertia': 0.11.0
+      nprogress: 0.2.0
     dev: false
 
   /@rollup/pluginutils/4.2.1:
@@ -395,6 +406,10 @@ packages:
     resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+
+  /nprogress/0.2.0:
+    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
+    dev: false
 
   /object-inspect/1.12.2:
     resolution: {integrity: sha512-z+cPxW0QGUp0mcqcsgQyLVRDoXFQbXOwBaqyF7VIgI4TWNQsDHrBpUQslRmIfAoYWdYzs6UlKJtB2XJpTaNSpQ==}
