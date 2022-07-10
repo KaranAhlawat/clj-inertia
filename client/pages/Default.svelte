@@ -2,19 +2,19 @@
     export let status;
 </script>
 
-<div>
+<div class="container">
     <p>{status}</p>
 </div>
 
 <style scoped>
-    div {
+    .container {
         display: grid;
         place-items: center;
     }
 
     p {
         font-family: 'Montserrat';
-        font-size: 300px;
+        font-size: 18rem;
         font-weight: 800;
         opacity: 10%;
     }

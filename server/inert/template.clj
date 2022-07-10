@@ -29,14 +29,12 @@
                     (-> "resources/dist/manifest.json"
                         slurp
                         (json/read-str :key-fn keyword)
-                        :main.js
-                        :file))
+                        (get-in [:main.js :file])))
         css-file (when (= env "production")
                    (-> "resources/dist/manifest.json"
                        slurp
                        (json/read-str :key-fn keyword)
-                       :main.js
-                       :css
+                       (get-in [:main.js :css])
                        first))]
     (html/render-file "index.html"
                       {:page data-page

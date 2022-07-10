@@ -15,5 +15,4 @@
 (defn default-handler
   "Render the Default component"
   [_]
-  (inertia/render :Default {:status 404}
-                  true))
+  (inertia/render :Default {:status 404}))
