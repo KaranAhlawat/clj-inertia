@@ -10,7 +10,7 @@
     },
     {
       display: "Inertia.js",
-      url: "https://inertiajs.com,",
+      url: "https://inertiajs.com",
     },
   ];
 </script>
