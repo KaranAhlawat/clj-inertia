@@ -6,7 +6,7 @@
 (def system-config
   "The system configuration to start the application.
    Currently we just start the server. Used with integrant."
-  {:adapter/jetty {:port (or (System/getenv "PORT") 8080)
+  {:adapter/jetty {:port (Integer/parseInt (or (System/getenv "PORT") "8080"))
                    :join? false}})
 
 (defmethod ig/init-key :adapter/jetty 
