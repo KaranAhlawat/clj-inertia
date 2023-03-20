@@ -31,7 +31,7 @@
 
   <div class="spacer" />
 
-  <a href="https://git.sr.ht/~korven/svelte-inertia">Source Code</a>
+  <a href="https://github.com/KaranAhlawat/clj-inertia">Source Code</a>
 </div>
 
 <style scoped>

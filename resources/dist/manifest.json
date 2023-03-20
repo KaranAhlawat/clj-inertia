@@ -1,0 +1,48 @@
+{
+  "main.js": {
+    "file": "assets/main.b1c5da25.js",
+    "src": "main.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "pages/Counter.svelte",
+      "pages/Default.svelte",
+      "pages/Home.svelte"
+    ],
+    "css": [
+      "assets/main.f4dee7dd.css"
+    ]
+  },
+  "pages/Counter.svelte": {
+    "file": "assets/Counter.90cff898.js",
+    "src": "pages/Counter.svelte",
+    "isDynamicEntry": true,
+    "imports": [
+      "main.js"
+    ],
+    "css": [
+      "assets/Counter.938c041e.css"
+    ]
+  },
+  "pages/Default.svelte": {
+    "file": "assets/Default.09338c3a.js",
+    "src": "pages/Default.svelte",
+    "isDynamicEntry": true,
+    "imports": [
+      "main.js"
+    ],
+    "css": [
+      "assets/Default.52923add.css"
+    ]
+  },
+  "pages/Home.svelte": {
+    "file": "assets/Home.f413a39a.js",
+    "src": "pages/Home.svelte",
+    "isDynamicEntry": true,
+    "imports": [
+      "main.js"
+    ],
+    "css": [
+      "assets/Home.895e6aa8.css"
+    ]
+  }
+}

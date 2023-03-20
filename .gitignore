@@ -6,6 +6,3 @@ node_modules/
 .idea/
 .lsp/
 .calva/
-resources/dist/
-resources/*.edn
-!resources/*.sample.edn

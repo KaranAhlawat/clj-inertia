@@ -1,5 +1,14 @@
 @import "open-props/normalize";
 
+body {
+  background-color: var(--gray-9);
+  color: var(--gray-2);
+}
+
+h1, h2 {
+  color: var(--gray-2);
+}
+
 .nav-link {
   font-size: var(--font-size-5);
   text-decoration: none;
