@@ -6,3 +6,4 @@ node_modules/
 .idea/
 .lsp/
 .calva/
+resources/dist/
