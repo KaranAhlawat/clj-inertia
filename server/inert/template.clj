@@ -1,7 +1,8 @@
 (ns inert.template
   (:require [selmer.parser :as html]
             [clojure.edn :as edn]
-            [clojure.data.json :as json]))
+            [clojure.data.json :as json]
+            [clojure.java.io :as io]))
 
 ;; We define a custom Selmer tag because the script tag didn't do what is
 ;; required by JS modules.
@@ -18,7 +19,7 @@
 (defn template
   "Render the template file with the correct context-map based on the environment."
   [data-page]
-  (let [env (-> "resources/env.edn"
+  (let [env (-> (io/resource "env.edn")
                 slurp
                 edn/read-string
                 :env)
@@ -26,12 +27,12 @@
         ;; Else, we parse the manifest.json file for the correct file name.
         main-file (if (= env "development")
                     "http://localhost:3000/main.js"
-                    (-> "resources/dist/manifest.json"
+                    (-> (io/resource "dist/manifest.json")
                         slurp
                         (json/read-str :key-fn keyword)
                         (get-in [:main.js :file])))
         css-file (when (= env "production")
-                   (-> "resources/dist/manifest.json"
+                   (-> (io/resource "dist/manifest.json")
                        slurp
                        (json/read-str :key-fn keyword)
                        (get-in [:main.js :css])
