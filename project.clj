@@ -9,4 +9,6 @@
                  [ring/ring-jetty-adapter "1.9.5"]
                  [metosin/reitit "0.5.18"]
                  [selmer "1.12.52"]]
+  :profiles {:uberjar {:aot [inert.system]
+                       :resource-paths ["resources"]}}
   :main inert.system)

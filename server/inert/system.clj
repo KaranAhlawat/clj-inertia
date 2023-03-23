@@ -1,4 +1,5 @@
 (ns inert.system
+  (:gen-class)
   (:require [integrant.core :as ig]
             [inert.server :refer [app]]
             [ring.adapter.jetty :refer [run-jetty]]))
