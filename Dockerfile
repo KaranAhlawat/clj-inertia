@@ -1,10 +1,10 @@
 FROM node:lts-alpine AS frontend-builder
 COPY package.json /app
 COPY package-lock.json /app
-RUN npm ci
 COPY client /app/client
 COPY vite.config.ts /app
 WORKDIR /app
+RUN npm ci
 RUN npm run build
 
 FROM alpine:latest AS backend-builder
