@@ -1,4 +1,5 @@
 FROM node:lts-alpine AS frontend-builder
+RUN mkdir -p /app/client
 COPY package.json /app
 COPY package-lock.json /app
 COPY client /app/client
