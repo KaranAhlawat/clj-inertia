@@ -8,7 +8,7 @@
                  [com.github.prestancedesign/inertia-clojure "0.2.5"]
                  [ring/ring-jetty-adapter "1.9.5"]
                  [metosin/reitit "0.5.18"]
-                 [selmer "1.12.52"]]
-  :profiles {:uberjar {:aot [inert.system]
-                       :resource-paths ["resources"]}}
+                 [selmer "1.12.52"]
+                 [environ "1.2.0"]]
+  :profiles {:uberjar {:aot [inert.system]}}
   :main inert.system)

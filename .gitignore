@@ -12,7 +12,6 @@ pom.xml.asc
 
 node_modules/
 resources/dist/
-resources/env.edn
 
 .lsp/
 .clj-kondo/

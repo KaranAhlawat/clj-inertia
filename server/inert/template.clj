@@ -2,7 +2,8 @@
   (:require [selmer.parser :as html]
             [clojure.edn :as edn]
             [clojure.data.json :as json]
-            [clojure.java.io :as io]))
+            [clojure.java.io :as io]
+            [environ.core :refer [env]]))
 
 ;; We define a custom Selmer tag because the script tag didn't do what is
 ;; required by JS modules.
@@ -19,19 +20,16 @@
 (defn template
   "Render the template file with the correct context-map based on the environment."
   [data-page]
-  (let [env (-> (io/resource "env.edn")
-                slurp
-                edn/read-string
-                :env)
+  (let [environment (env :env)
         ;; If env is dev, we just point to the running vite server.
         ;; Else, we parse the manifest.json file for the correct file name.
-        main-file (if (= env "development")
+        main-file (if (= environment "development")
                     "http://localhost:3000/main.js"
                     (-> (io/resource "dist/manifest.json")
                         slurp
                         (json/read-str :key-fn keyword)
                         (get-in [:main.js :file])))
-        css-file (when (= env "production")
+        css-file (when (= environment "production")
                    (-> (io/resource "dist/manifest.json")
                        slurp
                        (json/read-str :key-fn keyword)
@@ -39,7 +37,7 @@
                        first))]
     (html/render-file "index.html"
                       {:page data-page
-                       :env env
+                       :env environment
                        :url main-file
                        :css css-file})))
 
@@ -49,13 +47,6 @@
   (format "bruh/%s" "broski")
 
   (template "")
-  (let [env (-> "resources/env.edn"
-                slurp
-                edn/read-string
-                :env)]
-    (if (= env "development")
-      "foo"
-      "bar"))
 
   (html/render "{%  module url %}" {:url "https://localhost:3000/src/client/app.js"})
   ,)

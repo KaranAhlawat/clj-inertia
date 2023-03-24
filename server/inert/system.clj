@@ -2,12 +2,13 @@
   (:gen-class)
   (:require [integrant.core :as ig]
             [inert.server :refer [app]]
-            [ring.adapter.jetty :refer [run-jetty]]))
+            [ring.adapter.jetty :refer [run-jetty]]
+            [environ.core :refer [env]]))
 
 (def system-config
   "The system configuration to start the application.
    Currently we just start the server. Used with integrant."
-  {:adapter/jetty {:port (Integer/parseInt (or (System/getenv "PORT") "8080"))
+  {:adapter/jetty {:port (Integer/parseInt (env :port "8080"))
                    :join? false}})
 
 (defmethod ig/init-key :adapter/jetty 
