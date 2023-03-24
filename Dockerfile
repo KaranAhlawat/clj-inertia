@@ -24,4 +24,5 @@ COPY --from=backend-builder /app/target/inert-1.0.0-standalone.jar /srv
 ENV PORT 9000
 ENV ENV  development
 EXPOSE $PORT
+RUN echo env = $ENV , port = $PORT
 CMD ["java", "-jar", "/srv/inert-1.0.0-standalone.jar"]
