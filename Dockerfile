@@ -21,7 +21,7 @@ RUN lein uberjar
 FROM alpine:latest
 RUN apk add --no-cache openjdk17-jre-headless
 COPY --from=backend-builder /app/target/inert-1.0.0-standalone.jar /srv
-ARG PORT
+ENV PORT 9000
+ENV ENV  development
 EXPOSE $PORT
-RUN echo "Port is $PORT and env is $ENV"
 CMD ["java", "-jar", "/srv/inert-1.0.0-standalone.jar"]
