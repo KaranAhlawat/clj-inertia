@@ -1,6 +1,5 @@
 (ns inert.template
   (:require [selmer.parser :as html]
-            [clojure.edn :as edn]
             [clojure.data.json :as json]
             [clojure.java.io :as io]
             [environ.core :refer [env]]))
