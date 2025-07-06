@@ -1,4 +1,9 @@
+/* the props */
+@import "open-props/style";
+
+/* optional imports that use the props */
 @import "open-props/normalize";
+@import "open-props/buttons";
 
 body {
   background-color: var(--gray-9);

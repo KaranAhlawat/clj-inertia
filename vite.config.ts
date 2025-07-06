@@ -36,15 +36,6 @@ export default defineConfig(({ mode }) => {
         }
       }
     )],
-    // Does what it says, I'm guessing. Don't ask me :D
-    optimizeDeps: {
-      include: [
-        "@inertiajs/inertia",
-        "@inertiajs/inertia-svelte",
-        "open-props",
-        "@inertiajs/progress",
-      ],
-    },
     css: {
       postcss: {
         plugins: [postcssJitProps(OpenProps)],

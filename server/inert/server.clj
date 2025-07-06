@@ -33,11 +33,12 @@
 
       ;; The path where the built assets are located on the filesystem.
       ;; It is relative to the resources folder.
-      :root "./dist/"})
+      :root "dist"
 
-    ;; Just a default handler to serve 404 respones (doesn't do that yet)
-    ;; and display a nice 404 page.
-    #'h/default-handler)
+      ;; Just a default handler to serve 404 respones (doesn't do that yet)
+      ;; and display a nice 404 page
+      :not-found-handler #'h/default-handler})
+    (ring/create-default-handler))
 
    ;; Our middleware chain for the router.
    {:reitit.middleware/transform dev/print-request-diffs ;; Doesn't seem to work
