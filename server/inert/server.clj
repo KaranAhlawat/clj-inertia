@@ -19,7 +19,8 @@
    ring handler."
   (ring/ring-handler
    (ring/router
-    [["/" {:get {:handler #'h/index-handler}}] ;; Index route
+    [["/up" {:get {:handler #'h/health-handler}}] ;; health route
+     ["/" {:get {:handler #'h/index-handler}}] ;; Index route
      ["/counter" {:get {:handler #'h/counter-handler}}]] ;; Displays a Counter
     ;; Pretty print the exceptions
     {:exception pretty/exception})

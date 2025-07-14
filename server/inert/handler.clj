@@ -2,6 +2,11 @@
   "This namespace contains all the handlers for our router."
   (:require [inertia.middleware :as inertia]))
 
+(defn health-handler
+  "Health monitoring handler"
+  [_]
+  {:status 200, :body "OK"})
+
 (defn index-handler
   "Render the Home component"
   [_]

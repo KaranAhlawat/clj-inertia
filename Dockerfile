@@ -10,10 +10,11 @@ RUN bun run build
 FROM alpine:latest AS backend-builder
 RUN apk add --no-cache leiningen
 ADD project.clj /app/project.clj
+WORKDIR /app
+RUN lein deps
 ADD resources/index.html /app/resources/index.html
 ADD server /app/server
 COPY --from=frontend-builder /app/resources/dist /app/resources/dist
-WORKDIR /app
 RUN lein uberjar
 
 FROM alpine:latest
