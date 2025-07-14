@@ -17,7 +17,7 @@
 
 <div class="container">
   <h2>Hello there,</h2>
-  <h2>random stranger!</h2>
+  <h2>internet friend!</h2>
   <div class="spacer" />
 
   <p>This website is a PoC for using</p>
